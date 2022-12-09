@@ -28,7 +28,8 @@ function Square(props) {
 
         <div>  
         
-        <h1>Guess Who</h1>
+          
+        <div id = "logo"></div>
 
           <div className="board-row">
             {this.renderSquare(0)}
@@ -121,7 +122,7 @@ function Square(props) {
       const moves = history.map((step, move) => {
         const desc = move ?
           'Go to move #' + move :
-          'Go to game start';
+          'Undo';
         return (
             <li key={move}>
             <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -133,7 +134,7 @@ function Square(props) {
       if (winner) {
         status = 'Winner: ' + winner;
       } else {
-        status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+        // status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
       }
   
       return (
