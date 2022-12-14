@@ -4,7 +4,7 @@ import "./index.css"
 
 function Square(props) {
     return (
-      <button className="square" onClick={props.onClick}>
+      <button id={props.id} className="square" onClick={props.onClick}>
         {props.value}
       </button>
     );
@@ -14,6 +14,7 @@ function Square(props) {
     renderSquare(i) {
       return (
         <Square
+          id={"square" + i}
           value={this.props.squares[i]}
           onClick={() => this.props.onClick(i)}
         />
@@ -30,6 +31,8 @@ function Square(props) {
         
           
         <div id = "logo"></div>
+        <button id = "play">play</button>
+        <div id = "character">your character:</div>
 
           <div className="board-row">
             {this.renderSquare(0)}
@@ -73,6 +76,17 @@ function Square(props) {
             {this.renderSquare(29)}
             {this.renderSquare(30)}
             {this.renderSquare(31)}
+         
+          </div>
+          <div className="board-row">
+            {this.renderSquare(32)}
+            {this.renderSquare(33)}
+            {this.renderSquare(34)}
+            {this.renderSquare(35)}
+            {this.renderSquare(36)}
+            {this.renderSquare(37)}
+            {this.renderSquare(38)}
+            {this.renderSquare(39)}
          
           </div>
         </div>

@@ -1,4 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
+#play{
+    background-color:rgb(189, 51, 47);   
+    color: white;
+   }
+
+   #square0{
+    background-image: url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_5945192_990.jpg?crop=0,0,100%,85%&resize=200,200
+    );
+    background-size: contain;
+   }
+   #square1{
+    background-image: url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_3768373_930.jpg?crop=0,0,100%,85%&resize=200,200
+
+    );
+    background-size: contain;
+   }
+   #square2{
+    background-image: url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_586444_874.jpg?crop=0,0,100%,75%&resize=200,200
+
+    );
+    background-size: contain;
+
+   }
+    #square3{
+        background-image: url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_1001721_221.jpg?crop=0,0,100%,85%&resize=200,200
+        );
+    background-size: contain;
+   }
+
+   #square4{
+    background-image: url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_4791885_623.jpg?crop=0,0,100%,75%&resize=200,200
+    );
+background-size: contain;
+    }
+
+
+
+   #character{
+    background-color: rgb(31, 74, 133);
+    height: 300px;
+    width: 200px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Bowlby One';
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: none;
+
+
+   }
+
 
 body{
 
