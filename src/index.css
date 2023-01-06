@@ -1,61 +1,231 @@
 @import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
+
 #play{
-    background-color:rgb(189, 51, 47);   
+    background-color: rgb(31,70,133);
+}
+#person{
+    height: 200px;
+    width: 100%;
+    background-color: white;
+    justify-content: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#character{
+    background-color: rgb(31,70,133);
+    height: 397px;
+    width: 200px;
+    padding-left: 60px;
+    padding-right: 60px;
+    position: relative;
+    left: 795px;
+    top: -397px;
     color: white;
-   }
+    font-family:'Bowlby One' ;
+    text-align: center;
+    font-size: 30px;
 
-   #square0{
-    background-image: url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_5945192_990.jpg?crop=0,0,100%,85%&resize=200,200
-    );
-    background-size: contain;
-   }
-   #square1{
-    background-image: url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_3768373_930.jpg?crop=0,0,100%,85%&resize=200,200
 
-    );
-    background-size: contain;
-   }
-   #square2{
-    background-image: url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_586444_874.jpg?crop=0,0,100%,75%&resize=200,200
-
-    );
-    background-size: contain;
-
-   }
-    #square3{
-        background-image: url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_1001721_221.jpg?crop=0,0,100%,85%&resize=200,200
-        );
-    background-size: contain;
-   }
-
-   #square4{
-    background-image: url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_4791885_623.jpg?crop=0,0,100%,75%&resize=200,200
+}
+/* mattis */
+.squares0{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_5945192_990.jpg?crop=0,0,100%,85%&resize=200,200);
+background-size: contain;
+}
+/* bensky */
+.squares1{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_3768373_930.jpg?crop=0,0,100%,85%&resize=200,200);
+background-size: contain;
+}
+/* slick */
+.squares2{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_586444_874.jpg?crop=0,0,100%,75%&resize=200,200
     );
 background-size: contain;
-    }
+}
 
-
-
-   #character{
-    background-color: rgb(31, 74, 133);
-    height: 300px;
-    width: 200px;
-    color: white;
-    font-size: 20px;
-    font-family: 'Bowlby One';
-    text-align: center;
-    display: flex;
-    justify-content: flex-end;
-    padding-right: none;
-
-
-   }
-
-
+/* brizz */
+.squares3{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_1001721_221.jpg?crop=0,0,100%,85%&resize=200,200
+    );
+background-size: contain;
+}
+/* okp */
+.squares4{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_4791885_623.jpg?crop=0,0,100%,75%&resize=200,200
+    );
+background-size: contain;
+}
+/* manuel */
+.squares5{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_3035309_182.jpg?crop=0,0,100%,85%&resize=200,200
+    );
+background-size: contain;
+}
+/* payne */
+.squares6{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_3711806_324.jpg?crop=0,0,100%,85%&resize=200,200
+    );
+background-size: contain;
+}
+/* levia */
+.squares7{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_6908605_909.jpg?crop=0,0,100%,75%&resize=200,200
+    );
+background-size: contain;
+}
+/* charlie */
+.squares8{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_2517567.jpg?resize=200,200
+    );
+background-size: contain;
+}
+/* jval */
+.squares9{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_6936548_547.jpg?crop=0,0,100%,75%&resize=200,200
+    );
+background-size: contain;
+}
+/* abby */
+.squares10{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user6905849_5338388_15.jpg?resize=200,200
+    );
+background-size: contain;
+}
+/* de jesus */
+.squares11{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user7122814_5555020_735.jpeg?resize=200,200
+    );
+background-size: contain;
+}
+/* anderson */
+.squares12{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_3156362_691.jpg?crop=0,0,100%,85%&resize=200,200
+    );
+    background-size: contain;
+}
+    /* mittnacht */
+.squares13{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_6019692_1.jpg?crop=0,0,100%,85%&resize=200,200
+    );
+background-size: contain;
+}
+/* harvey */
+.squares14{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_1320582_346.jpg?crop=0,0,100%,75%&resize=200,200
+    );
+background-size: contain;
+}
+/* leja */
+.squares15{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_2373072_752.jpg?crop=0,0,100%,85%&resize=200,200
+    );
+background-size: contain;
+}
+/* sean */
+.squares16{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_6905878_884.jpg?crop=0,0,100%,75%&resize=200,200
+    );
+background-size: contain;
+}
+/* lillo */
+.squares17{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_6905843_684.jpg?crop=0,0,100%,80%&resize=200,200
+    );
+background-size: contain;
+}
+/* blake */
+.squares18{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_2277667_846.jpg?crop=0,0,100%,85%&resize=200,200
+    );
+background-size: contain;
+}
+/* hummel */
+.squares19{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user3711867_2185880_509.jpg?resize=200,200
+    );
+background-size: contain;
+}
+/* forbes */
+.squares20{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_4791699_493.jpg?crop=0,0,100%,85%&resize=200,200
+    );
+background-size: contain;
+}
+/* cohen */
+.squares21{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_3775059_589.jpg?crop=0,0,100%,85%&resize=200,200
+    );
+background-size: contain;
+}
+/* geller */
+.squares22{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user972639_56226_109.jpg?crop=0,0,100%,85%&resize=200,200
+    );
+background-size: contain;
+}
+/* molly */
+.squares23{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_2600889_428.jpg?crop=0,0,100%,85%&resize=200,200
+    );
+background-size: contain;
+}
+/* gomp */
+.squares24{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_586336_318.jpg?crop=0,0,100%,85%&resize=200,200
+    );
+background-size: contain;
+}
+/* lindo */
+.squares25{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_6458360_87.jpg?crop=0,0,100%,75%&resize=200,200
+    );
+background-size: contain;
+}
+/* matz */
+.squares26{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_3809422_958.jpg?crop=0,0,100%,85%&resize=200,200
+    );
+background-size: contain;
+}
+/* jenny */
+.squares27{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user5539833_3974146_451.jpg?resize=200,200
+    );
+background-size: contain;
+}
+/* dunitz */
+.squares28{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_6019681_841.jpg?crop=0,0,100%,85%&resize=200,200
+    );
+background-size: contain;
+}
+/* lechich */
+.squares29{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_586806_617.jpg?crop=0,0,100%,85%&resize=200,200
+    );
+background-size: contain;
+}
+/* rubin */
+.squares30{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_586427_519.jpg?crop=0,0,100%,75%&resize=200,200
+    );
+background-size: contain;
+}
+/* randy */
+.squares31{
+    background-image:url(https://dalton.myschoolapp.com/ftpimages/98/user/large_user_586445_481.jpg?crop=0,0,100%,75%&resize=200,200
+    );
+background-size: contain;
+}
 body{
+    overflow: hidden;
 
 
     margin: 20px;
+}
+h1{
+ color:rgb(189, 51, 47);   
 }
 ol,
 ul{
@@ -78,7 +248,6 @@ ul{
 }
 
 .square{
-    background: #fff;
     border: 1px solid #999;
     float: left;
     font-size: 24px;

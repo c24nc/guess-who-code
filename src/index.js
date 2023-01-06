@@ -4,17 +4,26 @@ import "./index.css"
 
 function Square(props) {
     return (
-      <button id={props.id} className="square" onClick={props.onClick}>
+      <button id = {props.id} className={"square " +props.id} onClick={props.onClick}>
+    
         {props.value}
       </button>
     );
   }
   
   class Board extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        mainCharacter: Math.round(Math.random()*31), //pick random
+        showCharacter: false,
+      };
+    }
+    
     renderSquare(i) {
       return (
         <Square
-          id={"square" + i}
+          id = {"squares" + i}
           value={this.props.squares[i]}
           onClick={() => this.props.onClick(i)}
         />
@@ -29,11 +38,17 @@ function Square(props) {
 
         <div>  
         
-          
         <div id = "logo"></div>
-        <button id = "play">play</button>
-        <div id = "character">your character:</div>
-
+        <table>
+          <tr>
+            <td> <button id = "play" onClick={() => {
+              console.log(this.state.showCharacter)
+              this.setState({showCharacter: !this.state.showCharacter}) 
+            }
+            }>PLAY</button></td>
+            <td><button id = "undo">UNDO</button></td>
+          </tr>
+        </table>
           <div className="board-row">
             {this.renderSquare(0)}
             {this.renderSquare(1)}
@@ -78,20 +93,20 @@ function Square(props) {
             {this.renderSquare(31)}
          
           </div>
-          <div className="board-row">
-            {this.renderSquare(32)}
-            {this.renderSquare(33)}
-            {this.renderSquare(34)}
-            {this.renderSquare(35)}
-            {this.renderSquare(36)}
-            {this.renderSquare(37)}
-            {this.renderSquare(38)}
-            {this.renderSquare(39)}
-         
-          </div>
+          <MainCharacter choice={this.state.mainCharacter} show={this.state.showCharacter} />
+          
+
         </div>
       );
     }
+  }
+
+  class MainCharacter extends React.Component {
+    render() {
+      return (
+        <div id = "character">YOUR CHARACTER:<center><div id = "person" className={this.props.show?("squares" + this.props.choice):""}></div></center></div>
+      )
+    } 
   }
   
   class Game extends React.Component {
@@ -105,7 +120,12 @@ function Square(props) {
         xIsNext: true,
       };
     }
-  
+
+    // startGame(i) {
+    //   const people = [squares]
+    //   const random = Math.round(Math.random()*31)
+    //   const player = people[random]
+    // }
     handleClick(i) {
         const history = this.state.history.slice(0, this.state.stepNumber + 1);
         const current = history[history.length - 1];
@@ -113,7 +133,7 @@ function Square(props) {
       if (calculateWinner(squares) || squares[i]) {
         return;
       }
-      squares[i] = this.state.xIsNext ? 'X' : 'O';
+      squares[i] = this.state.xIsNext ? '⬜' : '⬜';
       this.setState({
         history: history.concat([{
           squares: squares
@@ -133,16 +153,6 @@ function Square(props) {
       const current = history[this.state.stepNumber];
       const winner = calculateWinner(current.squares);
   
-      const moves = history.map((step, move) => {
-        const desc = move ?
-          'Go to move #' + move :
-          'Undo';
-        return (
-            <li key={move}>
-            <button onClick={() => this.jumpTo(move)}>{desc}</button>
-          </li>
-        );
-      });
   
       let status;
       if (winner) {
@@ -161,7 +171,6 @@ function Square(props) {
           </div>
           <div className="game-info">
             <div>{status}</div>
-            <ol>{moves}</ol>
           </div>
         </div>
       );
@@ -192,4 +201,3 @@ function Square(props) {
     }
     return null;
   }
-  
