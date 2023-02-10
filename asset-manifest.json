@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/guess-who-code/static/css/main.6e27d090.css",
+    "main.js": "/guess-who-code/static/js/main.73e6e17e.js",
+    "index.html": "/guess-who-code/index.html",
+    "main.6e27d090.css.map": "/guess-who-code/static/css/main.6e27d090.css.map",
+    "main.73e6e17e.js.map": "/guess-who-code/static/js/main.73e6e17e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6e27d090.css",
+    "static/js/main.73e6e17e.js"
+  ]
+}
