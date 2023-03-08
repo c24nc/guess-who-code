@@ -3,23 +3,19 @@ import ReactDOM  from "react-dom/client";
 import "./index.css"
 
 function Square(props) {
+
+  // if props.value is '⬜' then it needs to have the blur CSS class added
+  const blurClass = props.value == '⬜' ? " blur" : "";
+
     return (
-      <button id = {props.id} className={"square " +props.id} onClick={props.onClick}>
-    
+      <button id = {props.id} className={"square " + props.id + blurClass} onClick={props.onClick}>
         {props.value}
       </button>
     );
   }
   
   class Board extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        mainCharacter: Math.round(Math.random()*31), //pick random
-        showCharacter: false,
-      };
-    }
-    
+
     renderSquare(i) {
       return (
         <Square
@@ -42,11 +38,14 @@ function Square(props) {
         <table>
           <tr>
             <td> <button id = "play" onClick={() => {
-              console.log(this.state.showCharacter)
-              this.setState({showCharacter: !this.state.showCharacter}) 
+              this.props.handleCharacter()
             }
             }>PLAY</button></td>
-            <td><button id = "undo">UNDO</button></td>
+            <td>
+              <button id = "undo" onClick={() => {this.props.handleUndo()}}>
+                UNDO
+              </button>
+            </td>
           </tr>
         </table>
           <div className="board-row">
@@ -93,7 +92,7 @@ function Square(props) {
             {this.renderSquare(31)}
          
           </div>
-          <MainCharacter choice={this.state.mainCharacter} show={this.state.showCharacter} />
+          <MainCharacter choice={this.props.mainCharacter} show={this.props.showCharacter} />
           
 
         </div>
@@ -113,12 +112,35 @@ function Square(props) {
     constructor(props) {
       super(props);
       this.state = {
-        history: [{
-          squares: Array(9).fill(null)
-        }],
+        history: [Array(9).fill(null)],
         stepNumber: 0,
         xIsNext: true,
+        mainCharacter: Math.round(Math.random()*31), //pick random
+        showCharacter: false,
       };
+    }
+
+    // define a function handleUndo that gets called when Undo button is clicked
+    handleUndo() {
+
+      // to undo, or go "back" by one, remove last item (move) in history list
+      // reminder, history is a list of squares
+      // slice(0,-1) removes the last item
+      let newHistory = [...this.state.history.slice(0,-1)]
+
+      // update state with new history and new stepNumber
+      // subtract 1 from stepNumber
+      this.setState(
+        {
+          history: newHistory,
+          stepNumber: this.state.stepNumber - 1
+        }
+      )
+    }
+
+    // change showCharacter from true to false and vice versa every time "play is clicked"
+    handleCharacter () {
+      this.setState({showCharacter: !this.state.showCharacter})
     }
 
     // startGame(i) {
@@ -126,33 +148,39 @@ function Square(props) {
     //   const random = Math.round(Math.random()*31)
     //   const player = people[random]
     // }
+
+    // handle square click
     handleClick(i) {
-        const history = this.state.history.slice(0, this.state.stepNumber + 1);
-        const current = history[history.length - 1];
-      const squares = current.squares.slice();
-      if (calculateWinner(squares) || squares[i]) {
-        return;
-      }
-      squares[i] = this.state.xIsNext ? '⬜' : '⬜';
-      this.setState({
-        history: history.concat([{
-          squares: squares
-        }]),
-        stepNumber: history.length,
-        xIsNext: !this.state.xIsNext,
-      });
+        // currentSquares is the last item in history list
+        // the index of the last item is the same as the stepNumber
+        const currentSquares = [...this.state.history[this.state.stepNumber]];
+
+        if (calculateWinner(currentSquares) || currentSquares[i]) {
+          return;
+        }
+
+        // update currentSquares to have '⬜' for square that was clicked (index i)
+        currentSquares[i] = this.state.xIsNext ? '⬜' : '⬜';
+
+        // update state
+        this.setState({
+          history: history.concat([currentSquares]), // add updated currentSquares
+          stepNumber: this.state.stepNumber + 1, // increment stepNumber by 1
+          xIsNext: !this.state.xIsNext,
+        });
     }
+
     jumpTo(step) {
         this.setState({
           stepNumber: step,
           xIsNext: (step % 2) === 0,
         });
-      }
+    }
+
     render() {
       const history = this.state.history;
-      const current = history[this.state.stepNumber];
-      const winner = calculateWinner(current.squares);
-  
+      const currentSquares = history[this.state.stepNumber];
+      const winner = calculateWinner(currentSquares);
   
       let status;
       if (winner) {
@@ -160,13 +188,17 @@ function Square(props) {
       } else {
         // status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
       }
-  
+
       return (
         <div className="game">
           <div className="game-board">
             <Board
-              squares={current.squares}
+              squares={currentSquares}
               onClick={(i) => this.handleClick(i)}
+              mainCharacter = {this.state.mainCharacter}
+              showCharacter = {this.state.showCharacter}
+              handleCharacter = {() => this.handleCharacter()}
+              handleUndo = {() => this.handleUndo()}
             />
           </div>
           <div className="game-info">
