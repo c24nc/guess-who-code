@@ -164,7 +164,7 @@ class Game extends React.Component {
 
     // update state
     this.setState({
-      history: history.concat([currentSquares]), // add updated currentSquares
+      history: this.state.history.concat([currentSquares]), // add updated currentSquares
       stepNumber: this.state.stepNumber + 1, // increment stepNumber by 1
       xIsNext: !this.state.xIsNext,
     });

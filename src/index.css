@@ -28,7 +28,8 @@
 
 }
 .blur {
-    /* add your css here for blur */
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
 }
 /* mattis */
 .squares0{
