@@ -122,20 +122,23 @@ class Game extends React.Component {
 
   // define a function handleUndo that gets called when Undo button is clicked
   handleUndo() {
+    if (this.state.stepNumber >= 1) {
+      // to undo, or go "back" by one, remove last item (move) in history list
+      // reminder, history is a list of squares
+      // slice(0,-1) removes the last item
+        let newHistory = [...this.state.history.slice(0, -1)]
 
-    // to undo, or go "back" by one, remove last item (move) in history list
-    // reminder, history is a list of squares
-    // slice(0,-1) removes the last item
-    let newHistory = [...this.state.history.slice(0, -1)]
+      // update state with new history and new stepNumber
+      // subtract 1 from stepNumber
+        this.setState(
+          {
+          history: newHistory,
+          stepNumber: this.state.stepNumber - 1
+          }
+        )
 
-    // update state with new history and new stepNumber
-    // subtract 1 from stepNumber
-    this.setState(
-      {
-        history: newHistory,
-        stepNumber: this.state.stepNumber - 1
       }
-    )
+    
   }
 
   // change showCharacter from true to false and vice versa every time "play is clicked"
