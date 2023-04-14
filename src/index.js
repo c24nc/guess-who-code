@@ -192,30 +192,36 @@ class Game extends React.Component {
       // status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
+ 
     return (
       <div className="game">
-        <div className="game-board">
-          <Board
-            squares={currentSquares}
-            onClick={(i) => this.handleClick(i)}
-            mainCharacter={this.state.mainCharacter}
-            showCharacter={this.state.showCharacter}
-            handleCharacter={() => this.handleCharacter()}
-            handleUndo={() => this.handleUndo()}
-          />
-        </div>
-        <div className="game-info">
-          <div>{status}</div>
-        </div>
-      </div>
+    <div className="game-board">
+      <Board
+        squares={currentSquares}
+        onClick={(i) => this.handleClick(i)}
+        mainCharacter={this.state.mainCharacter}
+        showCharacter={this.state.showCharacter}
+        handleCharacter={() => this.handleCharacter()}
+        handleUndo={() => this.handleUndo()}
+      />
+    </div>
+    <div className="game-info">
+      <div>{status}</div>
+    </div>
+  </div>
     );
   }
 }
 
 // ========================================
+function App() {
+  return(
+    <Game/>
+  );
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Game />);
+root.render(<App />);
 
 function calculateWinner(squares) {
   const lines = [
